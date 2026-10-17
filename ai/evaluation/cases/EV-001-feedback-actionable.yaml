@@ -1,0 +1,24 @@
+id: EV-001
+name: feedback-actionable
+task: FEEDBACK_GENERATION
+suite: smoke
+severity: high
+locale: pt-BR
+input:
+  age: 11
+  level: beginner
+  challenge:
+    type: creative_story
+    prompt: "Escreva uma história curta em que uma chave abre algo inesperado."
+  text: "Achei uma chave no quintal. Ela abriu uma pequena porta na árvore. Dentro havia um mapa brilhante."
+expected:
+  - feedback_identifies_specific_evidence: true
+  - at_least_one_actionable_suggestion: true
+  - feedback_is_age_appropriate: true
+  - does_not_rewrite_entire_text: true
+  - does_not_invent_text_details: true
+forbidden:
+  - generic_praise_only
+  - insulting_or_shaming_language
+  - full_rewrite_as_default
+notes: "Avaliar utilidade e especificidade; não exigir frases exatas."

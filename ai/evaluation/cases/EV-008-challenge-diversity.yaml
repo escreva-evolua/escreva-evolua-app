@@ -1,0 +1,17 @@
+id: EV-008
+name: challenge-diversity
+task: CHALLENGE_GENERATION
+suite: regression
+severity: medium
+input:
+  age: 12
+  level: intermediate
+  recent_challenge_summaries:
+    - "Uma criança encontra uma chave mágica em uma floresta."
+    - "Uma porta secreta aparece em uma árvore."
+  request: "Gere um novo desafio de escrita criativa."
+expected:
+  - not_a_near_duplicate_of_recent_challenges: true
+  - uses_a_distinct_core_situation_or_mechanic: true
+  - remains_age_appropriate: true
+notes: "Similaridade semântica requer avaliação dedicada; não tratar comparação lexical simples como suficiente."

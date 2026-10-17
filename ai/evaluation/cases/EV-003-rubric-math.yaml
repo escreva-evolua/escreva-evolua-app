@@ -1,0 +1,29 @@
+id: EV-003
+name: rubric-math-and-schema
+task: TEXT_EVALUATION
+suite: smoke
+severity: critical
+input:
+  rubric:
+    version: 1
+    criteria:
+      - { key: creativity, weight: 20 }
+      - { key: development, weight: 20 }
+      - { key: coherence, weight: 15 }
+      - { key: cohesion, weight: 10 }
+      - { key: vocabulary, weight: 10 }
+      - { key: structure, weight: 10 }
+      - { key: grammar, weight: 5 }
+      - { key: punctuation, weight: 5 }
+      - { key: challengeAdherence, weight: 5 }
+  text: "Texto sintético curto para teste de contrato."
+expected:
+  - output_matches_declared_schema: true
+  - every_criterion_score_between_0_and_100: true
+  - weights_sum_to_100: true
+  - final_score_matches_weighted_calculation: true
+  - rubric_version_is_recorded: true
+forbidden:
+  - missing_criterion_without_explicit_policy
+  - invalid_numeric_ranges
+notes: "Validar matematicamente no código sempre que possível; não confiar no LLM para garantir a conta."
