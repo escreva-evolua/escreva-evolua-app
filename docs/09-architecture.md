@@ -140,7 +140,7 @@ Quarkus API
 
 Adotar **Java 25 LTS**.
 
-Java 25 foi lançado em setembro de 2025 e é LTS. Quarkus 3.31 adicionou suporte completo a Java 25. Para produção, usar o stream LTS do Quarkus; neste momento, Quarkus 3.33 é o LTS recomendado.
+Java 25 foi lançado em setembro de 2025 e é LTS. Quarkus 3.31 adicionou suporte completo a Java 25. Para produção, usar o stream LTS do Quarkus; neste momento, Quarkus 3.40 é o LTS recomendado.
 
 ## Regra arquitetural
 

@@ -2,11 +2,11 @@
 
 ## Project Structure & Module Organization
 
-This repository is currently in Product Discovery; it contains specifications, not production code. `docs/` holds numbered product, domain, architecture, and delivery documents. `adrs/` contains numbered Architecture Decision Records (`ADR-NNN-title.md`). `specs/` is reserved for implementation specs; see `specs/README.md` for the proposed numbered feature layout. Keep related material in these directories and update the relevant README or index when adding a new document.
+This repository is in Product Discovery and includes an executable backend foundation, but no business features yet. `backend/` contains the Java 25/Quarkus application, Maven Wrapper, and integration tests; `.github/workflows/backend-ci.yml` runs its build and tests. `docs/` holds numbered product, domain, architecture, and delivery documents. `adrs/` contains numbered Architecture Decision Records (`ADR-NNN-title.md`). `specs/` contains approved implementation specs; see `specs/README.md` for the numbered feature layout. Keep related material in these directories and update the relevant README or index when adding a new document.
 
 ## Build, Test, and Development Commands
 
-There is no application build, local runtime, or automated test command at this stage. For documentation changes, review the rendered Markdown and inspect the patch with `git diff --check` (whitespace errors) and `git diff` (content review). Do not add application tooling until an approved spec calls for it.
+The backend requires JDK 25. From `backend/`, run `./mvnw --batch-mode --no-transfer-progress verify` to reproduce the CI build and tests, or `./mvnw quarkus:dev` to start it locally. The current foundation does not require external services or secrets; see `backend/README.md` for details and health-check URLs. For documentation-only changes, review the rendered Markdown and inspect the patch with `git diff --check` (whitespace errors) and `git diff` (content review).
 
 ## Writing Style & Naming Conventions
 
@@ -14,11 +14,11 @@ Write concise, direct Markdown with descriptive headings and actionable requirem
 
 ## Documentation and Spec Review
 
-When changing a requirement, check related user journeys, domain/architecture documents, API contracts, and backlog entries for consistency. Specs should include objectives, scope, requirements, acceptance criteria, invariants, dependencies, error cases, and expected tests, as described in `specs/README.md`. Mark unresolved decisions clearly rather than presenting assumptions as approved policy. No test framework or coverage threshold exists yet; include test expectations in specs and define executable checks when implementation begins.
+When changing a requirement, check related user journeys, domain/architecture documents, API contracts, and backlog entries for consistency. Specs should include objectives, scope, requirements, acceptance criteria, invariants, dependencies, error cases, and expected tests, as described in `specs/README.md`. Mark unresolved decisions clearly rather than presenting assumptions as approved policy. The backend currently uses Quarkus integration tests; run the documented `verify` command for every backend feature or correction before opening or updating a pull request, and record the applicable CI result before marking its spec complete. Define any additional executable checks in the relevant spec.
 
 ## Commit & Pull Request Guidelines
 
-The available Git history has one commit, `chore: initial project structure`, which uses a Conventional Commit style. Follow that pattern with a short type and imperative summary, such as `docs: clarify challenge evaluation rules`. Pull requests should explain the product or architecture rationale, list affected documents, link any related issue/spec, and call out decisions or follow-up work. Include screenshots only when a change affects a rendered visual artifact.
+Use Conventional Commit style with a short type and imperative summary, such as `docs: clarify challenge evaluation rules`. Pull requests should explain the product or architecture rationale, list affected documents, link any related issue/spec, and call out decisions or follow-up work. Include screenshots only when a change affects a rendered visual artifact.
 
 ## Security & Configuration
 
