@@ -9,7 +9,7 @@ Plataforma de desenvolvimento de escrita criativa apoiada por IA. O produto gera
 
 **Product Discovery — v0.1**
 
-Este repositório contém a especificação funcional e arquitetural inicial. Ainda não é código de produção.
+Este repositório contém a especificação funcional e arquitetural e inclui a fundação executável do backend. O produto ainda está em Product Discovery; consulte [backend/README.md](backend/README.md) para build, execução local e health checks.
 
 ## Objetivos do MVP
 
@@ -30,7 +30,7 @@ Este repositório contém a especificação funcional e arquitetural inicial. Ai
 ## Stack inicial
 
 - Java 25 LTS
-- Quarkus 3.33 LTS
+- Quarkus 3.40 LTS (backend fixado em 3.40.1)
 - MongoDB
 - RabbitMQ
 - Redis
@@ -51,6 +51,14 @@ O domínio e os casos de uso não podem depender de MongoDB, RabbitMQ, DeepSeek,
 ```text
 /
 ├── README.md
+├── backend/
+│   ├── pom.xml
+│   ├── README.md
+│   ├── mvnw
+│   ├── mvnw.cmd
+│   ├── .mvn/wrapper/
+│   └── src/
+├── .github/workflows/backend-ci.yml
 ├── docs/
 │   ├── 01-product-vision.md
 │   ├── 02-personas.md
