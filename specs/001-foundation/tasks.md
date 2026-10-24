@@ -31,15 +31,16 @@
 - [x] T10 — Atualizar `specs/README.md` com SPEC-001 e seu status.
 - [x] T11 — Revisar a arquitetura contra ADR-002/003; remover abstrações ou módulos vazios que não sejam necessários.
 - [x] T12 — Executar localmente o mesmo comando de build/testes da CI e registrar comando/resultado; repetir a validação a cada feature/correção.
-- [ ] T12.1 — Confirmar e registrar que o CI aplicável da implementação terminou sem falhas antes de concluir a spec.
+- [x] T12.1 — Confirmar e registrar que o CI aplicável da implementação terminou sem falhas antes de concluir a spec.
 - [x] T13 — Executar quality gates de build, testes, documentação, arquitetura, compatibilidade e release notes.
 - [x] T14 — Executar `git diff --check` e revisar `git diff`.
 - [x] T15 — Registrar eventuais warnings, evidências e limitações; concluir somente sem bloqueadores abertos.
 
 ## Evidências e gates
 
-- Build/testes locais: `MAVEN_USER_HOME=/tmp/escreva-evolua-maven-home ./mvnw --batch-mode --no-transfer-progress -Dmaven.repo.local=/tmp/escreva-evolua-m2 verify` — `PASS`, 2 testes de integração aprovados, 0 falhas (20/10/2026).
+- Build/testes locais: `MAVEN_USER_HOME=/tmp/escreva-evolua-maven-home ./mvnw --batch-mode --no-transfer-progress -Dmaven.repo.local=/tmp/escreva-evolua-m2 verify` — `PASS`, executado em 24/10/2026, `BUILD SUCCESS`, 2 testes de integração aprovados, 0 falhas, Java 25 e Quarkus 3.40.1.
 - Execução local: `MAVEN_USER_HOME=/tmp/escreva-evolua-maven-home ./mvnw -Dmaven.repo.local=/tmp/escreva-evolua-m2 quarkus:dev` — `PASS`; liveness e readiness consultados via HTTP retornaram `UP` (20/10/2026).
-- CI remoto: `WARNING`, ainda não disparado neste branch de trabalho; T12.1 permanece pendente até o workflow aplicável executar sem falhas em push para `main` ou PR direcionado a `main`.
+- CI remoto: `PASS`, check `Build and integration tests` da PR [#2](https://github.com/escreva-evolua/escreva-evolua-app/pull/2), execução [39526644643](https://github.com/escreva-evolua/escreva-evolua-app/actions/runs/39526644643), concluída com sucesso em 21/10/2026 antes do merge. Não houve reviews nem comentários de revisão ou conversa na PR.
+- Diff final (24/10/2026): `git diff --check` — `PASS`; revisão do diff sem artefatos gerados de build ou IDE.
 - Gates: build `PASS`; testes `PASS`; documentação `PASS`; arquitetura `PASS`; compatibilidade `PASS` (nenhum contrato anterior de backend existia); release notes `PASS` (sem impacto de release separado nesta fundação).
 - Documentação revisada: `README.md`, `backend/README.md`, `adrs/ADR-001-java-quarkus.md`, `specs/README.md`; comandos, versões, estrutura e links internos conferidos.

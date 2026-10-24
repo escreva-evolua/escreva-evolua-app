@@ -1,16 +1,24 @@
 version: "1.0"
-
 project:
   name: "escreva-evolua-app"
-
 governance:
   lifecycle: .darp/lifecycle.md
-
 workflows:
   default: implement
-
 skills:
   documentation: .agents/skills/documentation
   architecture: .agents/skills/architecture
   testing: .agents/skills/testing
   release: .agents/skills/release
+  security-review: .agents/skills/security-review
+darp:
+  sync:
+    managed:
+      skills:
+        architecture: .agents/skills/architecture
+        documentation: .agents/skills/documentation
+        release: .agents/skills/release
+        security-review: .agents/skills/security-review
+        testing: .agents/skills/testing
+      assets: []
+assets: []
