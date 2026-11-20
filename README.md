@@ -8,4 +8,4 @@ Consulte [backend/README.md](backend/README.md) para pré-requisitos, build, tes
 
 ## Estado
 
-O backend contém a fundação executável do projeto. Funcionalidades de produto ainda não estão disponíveis.
+O backend inclui cadastro de responsáveis por convite, consulta autenticada da própria conta e operações administrativas de identidade. Outras funcionalidades de produto ainda não estão disponíveis.

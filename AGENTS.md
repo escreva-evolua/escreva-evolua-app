@@ -2,11 +2,11 @@
 
 ## Project Structure & Module Organization
 
-This repository contains the public backend foundation, but no business features yet. `backend/` contains the Java 25/Quarkus application, Maven Wrapper, and integration tests; `.github/workflows/backend-ci.yml` runs its build and tests. Product discovery documents, ADRs, implementation specs, and internal AI evaluation materials are maintained separately and are not part of this public repository.
+This repository contains the public Java 25 / Spring Boot 4.1.2 backend, including invitation-based responsible registration, authenticated account lookup, MongoDB persistence, Cognito integration, administrative CLI commands, and integration tests. `.github/workflows/backend-ci.yml` runs Maven verification against MongoDB 8 and builds the Docker image. Product discovery documents, ADRs, implementation specs, and internal AI evaluation materials are maintained separately and are not part of this public repository.
 
 ## Build, Test, and Development Commands
 
-The backend requires JDK 25. From `backend/`, run `./mvnw --batch-mode --no-transfer-progress verify` to reproduce the CI build and tests, or `./mvnw quarkus:dev` to start it locally. The current foundation does not require external services or secrets; see `backend/README.md` for details and health-check URLs. For documentation-only changes, review the rendered Markdown and inspect the patch with `git diff --check` (whitespace errors) and `git diff` (content review).
+The backend requires JDK 25. From `backend/`, run `./mvnw --batch-mode --no-transfer-progress verify` to reproduce the CI build and tests, or `./mvnw spring-boot:run` to start it locally. Integration tests require Docker or MongoDB 8 at `localhost:27017`; application identity settings are supplied through environment variables. See `backend/README.md` for configuration, endpoint, and health-check details. For documentation-only changes, review the rendered Markdown and inspect the patch with `git diff --check` (whitespace errors) and `git diff` (content review).
 
 ## Writing Style & Naming Conventions
 
@@ -14,7 +14,7 @@ Write concise, direct Markdown with descriptive headings and actionable instruct
 
 ## Documentation and Spec Review
 
-For backend changes, check the relevant code and tests. The backend currently uses Quarkus integration tests; run the documented `verify` command for every backend feature or correction before opening or updating a pull request.
+For backend changes, check the relevant code and tests. The backend uses Spring Boot and JUnit integration tests; run the documented `verify` command for every backend feature or correction before opening or updating a pull request.
 
 ## Commit & Pull Request Guidelines
 
