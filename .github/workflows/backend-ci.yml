@@ -13,6 +13,16 @@ jobs:
   verify:
     name: Build and integration tests
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:8.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     defaults:
       run:
         working-directory: backend
@@ -28,3 +38,6 @@ jobs:
           cache-dependency-path: backend/pom.xml
       - name: Verify
         run: ./mvnw --batch-mode --no-transfer-progress verify
+      - name: Build container image
+        working-directory: .
+        run: docker build --tag escreva-evolua-backend:${GITHUB_SHA} .
